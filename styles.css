@@ -1,0 +1,40 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header {
+
+}
+
+.button {
+
+}
+
+#btn {
+
+}
+
+#container {
+height: 500px;
+width: 500px;
+border: solid black;
+display: flex;
+}
+
+.row {
+    height: 100%;
+    width: 100%;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+}
+.column {
+    height:50%;
+    width: 100%;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
