@@ -25,24 +25,13 @@ function clearGrid(parent) {
 }
 
 function makeGrid(num) {
-    if (num > 0 && num <= 64) {
-        clearGrid(container);
-        for (let r = 0; r < num; r++) {
-            makeRow();
-        }
-        for (let c = 0; c < num; c++) {
-            makeColumn();
-        }
-    } else {
-        alert('Please enter a number between 1-64')
+    clearGrid(container);
+    for (let r = 0; r < num; r++) {
+        makeRow();
     }
-}
-
-function rainbowColor() {
-    let x = Math.floor(Math.random() * 256);
-    let y = Math.floor(Math.random() * 256);
-    let z = Math.floor(Math.random() * 256);
-    return "rgb(" + x + "," + y + "," + z + ")";
+    for (let c = 0; c < num; c++) {
+        makeColumn();
+    }
 }
 
 container.addEventListener('mouseover', function (e) {
@@ -51,11 +40,22 @@ container.addEventListener('mouseover', function (e) {
     }
 })
 
+function rainbowColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`;
+}
+
 btnChange.addEventListener('click', function () {
     let userInput = parseInt(prompt('Please enter new grid dimensions'))
-    makeGrid(userInput);
+    if (userInput > 0 && userInput <= 64) {
+        makeGrid(userInput);
+    } else if (userInput <= 0 || userInput > 64) {
+        alert('Plese enter a number between 1-64');
+    } else { return }
 })
 btnReset.addEventListener('click', () => makeGrid(16));
 
-// Generates 16x16 grid
+// Generates initial 16x16 grid
 makeGrid(16);
