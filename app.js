@@ -37,8 +37,7 @@ function makeGrid(num) {
 container.addEventListener('mouseover', function (e) {
     if (e.target && e.target.className == 'column') {
         e.target.style.backgroundColor = rainbowColor();
-    }
-})
+    }})
 
 function rainbowColor() {
     let r = Math.floor(Math.random() * 256);
@@ -55,7 +54,7 @@ btnChange.addEventListener('click', function () {
         alert('Plese enter a number between 1-64');
     } else { return }
 })
-btnReset.addEventListener('click', () => makeGrid(16));
+btnReset.addEventListener('click', () => makeGrid(container.childElementCount));
 
 // Generates initial 16x16 grid
 makeGrid(16);
